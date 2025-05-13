@@ -381,3 +381,109 @@
     - D. SQL database integration
   answer: A. Automatic scaling and managed connections
   explanation: Azure Web PubSub provides automatic scaling and managed connections, reducing operational overhead.
+- id: 40
+  category: Azure Real-Time Services
+  question: Azure SignalR generated over 2 million in revenue in April?
+  options:
+    - A. Yes
+    - B. No
+  answer: A. Yes
+  explanation: Azure SignalR generated over 2 million in revenue in April.
+
+# DevBox Questions
+- id: 41
+  category: DevBox
+  question: What is Microsoft Dev Box primarily used for?
+  options:
+    - A. Hosting web servers
+    - B. Providing cloud-based developer workstations
+    - C. Managing databases
+    - D. Running email services
+  answer: B. Providing cloud-based developer workstations
+  explanation: Microsoft Dev Box provides cloud-based developer workstations for development and testing.
+- id: 42
+  category: DevBox
+  question: Which operating system can you run on a Microsoft Dev Box?
+  options:
+    - A. Windows
+    - B. Linux
+    - C. macOS
+    - D. All of the above
+  answer: A. Windows
+  explanation: Microsoft Dev Box currently supports Windows as the operating system.
+- id: 43
+  category: DevBox
+  question: How do you access a Microsoft Dev Box?
+  options:
+    - A. Through a web browser or Remote Desktop
+    - B. Only via SSH
+    - C. Only through a mobile app
+    - D. Only from the command line
+  answer: A. Through a web browser or Remote Desktop
+  explanation: Dev Boxes can be accessed via web browser or Remote Desktop.
+- id: 44
+  category: DevBox
+  question: What is a key benefit of using Microsoft Dev Box for development teams?
+  options:
+    - A. Centralized management and rapid provisioning
+    - B. Free hardware upgrades
+    - C. Unlimited storage
+    - D. Built-in email hosting
+  answer: A. Centralized management and rapid provisioning
+  explanation: Dev Box enables centralized management and rapid provisioning of developer environments.
+- id: 45
+  category: DevBox
+  question: Can you pre-configure Dev Boxes with specific tools and source code?
+  options:
+    - A. Yes
+    - B. No
+  answer: A. Yes
+  explanation: Dev Boxes can be pre-configured with tools, SDKs, and source code for specific projects.
+- id: 46
+  category: DevBox
+  question: Which Azure service is used to manage and deploy Microsoft Dev Boxes?
+  options:
+    - A. Azure Dev Center
+    - B. Azure Functions
+    - C. Azure Logic Apps
+    - D. Azure Blob Storage
+  answer: A. Azure Dev Center
+  explanation: Azure Dev Center is used to manage and deploy Dev Boxes.
+- id: 47
+  category: DevBox
+  question: What happens to your Dev Box when you stop it?
+  options:
+    - A. It is deleted
+    - B. It is deallocated and you stop being charged for compute
+    - C. It continues running
+    - D. It loses all data
+  answer: B. It is deallocated and you stop being charged for compute
+  explanation: Stopping a Dev Box deallocates it, stopping compute charges but retaining data.
+- id: 48
+  category: DevBox
+  question: Can multiple Dev Boxes be created for a single user?
+  options:
+    - A. Yes
+    - B. No
+  answer: A. Yes
+  explanation: Users can have multiple Dev Boxes for different projects or configurations.
+- id: 49
+  category: DevBox
+  question: What is a common use case for Microsoft Dev Box?
+  options:
+    - A. Setting up isolated environments for testing new features
+    - B. Hosting public websites
+    - C. Running production databases
+    - D. Managing DNS records
+  answer: A. Setting up isolated environments for testing new features
+  explanation: Dev Box is commonly used for isolated development and testing environments.
+- id: 50
+  category: DevBox
+  question: How is security managed for Microsoft Dev Box environments?
+  options:
+    - A. Through Azure Active Directory and network policies
+    - B. By using local user accounts only
+    - C. No security is provided
+    - D. By public IP access only
+  answer: A. Through Azure Active Directory and network policies
+  explanation: Security for Dev Box is managed using Azure Active Directory and network policies.
