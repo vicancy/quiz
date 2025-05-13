@@ -197,3 +197,97 @@
     - D. DNS-based routing
   answer: C. Deterministic outbound IPs
   explanation: Deterministic outbound IPs ensure consistent outbound IP addresses.
+
+# Azure App Configuration Questions
+- id: 21
+  category: Azure App Configuration
+  question: What is the main purpose of Azure App Configuration?
+  options:
+    - A. Storing virtual machine images
+    - B. Managing application configuration information
+    - C. Hosting static websites
+    - D. Monitoring application performance
+  answer: B. Managing application configuration information
+  explanation: Azure App Configuration is designed for managing application configuration information centrally.
+- id: 22
+  category: Azure App Configuration
+  question: What requirement must a key in Azure App Configuration meet?
+  options:
+    - A. Must be unique
+    - B. Must be encrypted
+    - C. Must be numeric
+    - D. Must be lowercase
+  answer: A. Must be unique
+  explanation: Keys in Azure App Configuration must be unique.
+- id: 23
+  category: Azure App Configuration
+  question: What is the purpose of labels in Azure App Configuration?
+  options:
+    - A. Grouping and versioning configuration items
+    - B. Encrypting configuration items
+    - C. Setting access permissions
+    - D. Monitoring configuration changes
+  answer: A. Grouping and versioning configuration items
+  explanation: Labels are used for grouping and versioning configuration items in Azure App Configuration.
+- id: 24
+  category: Azure App Configuration
+  question: Which service can Azure App Configuration integrate with for dynamic configuration refresh?
+  options:
+    - A. Azure Blob Storage
+    - B. Azure Key Vault
+    - C. Azure Functions
+    - D. Azure App Service
+  answer: D. Azure App Service
+  explanation: Azure App Configuration can integrate with Azure App Service for dynamic configuration refresh.
+- id: 25
+  category: Azure App Configuration
+  question: Which of the following is NOT a feature of Azure App Configuration?
+  options:
+    - A. Supports key-value storage
+    - B. Supports feature management
+    - C. Supports automatic scaling
+    - D. Supports label and version management
+  answer: C. Supports automatic scaling
+  explanation: Azure App Configuration does not provide automatic scaling as a feature.
+- id: 26
+  category: Azure App Configuration
+  question: What is the main pricing basis for Azure App Configuration?
+  options:
+    - A. Storage capacity
+    - B. Number of requests
+    - C. Number of configuration items
+    - D. Subscription level
+  answer: B. Number of requests
+  explanation: Azure App Configuration pricing is mainly based on the number of requests.
+- id: 27
+  category: Azure App Configuration
+  question: AppConfig is a multi-tenant service.
+  options:
+    - Yes
+    - No
+  answer: Yes
+  explanation: Azure App Configuration (AppConfig) is a multi-tenant service.
+- id: 28
+  category: Azure App Configuration
+  question: AppConfig is a Microsoft managed service built with industrial leading configuration management software.
+  options:
+    - Yes
+    - No
+  answer: No
+  explanation: AppConfig is completely built by Microsoft, not based on third-party configuration management software.
+- id: 29
+  category: Azure App Configuration
+  question: AppConfig major dependencies are all Ring 0 services.
+  options:
+    - Yes
+    - No
+  answer: Yes
+  explanation: AppConfig's major dependencies are all Ring 0 services.
+- id: 30
+  category: Azure App Configuration
+  question: AppConfig serves 1 billion request per month.
+  options:
+    - Yes
+    - No
+  answer: No
+  explanation: AppConfig serves over 20 billion requests per month, not just 1 billion.
