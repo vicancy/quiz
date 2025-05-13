@@ -1,0 +1,3 @@
+<!-- Use this file to provide workspace-specific custom instructions to Copilot. For more details, visit https://code.visualstudio.com/docs/copilot/copilot-customization#_use-a-githubcopilotinstructionsmd-file -->
+
+This project is a Next.js (TypeScript) quiz website. The backend stores questions and answers, each question belongs to one of 5 categories. The frontend displays a quiz page that randomly picks 6 questions from different categories (evenly distributed). After user submits answers, show the score, expected answers, and explanations. Store temporary answers in local storage to recover from browser crashes.
