@@ -291,3 +291,93 @@
     - No
   answer: No
   explanation: AppConfig serves over 20 billion requests per month, not just 1 billion.
+
+# Azure Real-Time service Questions
+- id: 31
+  category: Azure Real-Time Services
+  question: What is the main purpose of Azure SignalR and Azure Web PubSub?
+  options:
+    - A. Real-time messaging and communication
+    - B. File storage
+    - C. Virtual machine hosting
+    - D. Database management
+  answer: A. Real-time messaging and communication
+  explanation: Azure SignalR and Azure Web PubSub are designed for real-time messaging and communication between clients and servers.
+- id: 32
+  category: Azure Real-Time Services
+  question: Which protocol is commonly used by Azure SignalR and Azure Web PubSub for real-time communication?
+  options:
+    - A. HTTP
+    - B. WebSocket
+    - C. FTP
+    - D. SMTP
+  answer: B. WebSocket
+  explanation: WebSocket is the primary protocol used for real-time communication in these services.
+- id: 33
+  category: Azure Real-Time Services
+  question: What is a typical use case for Azure SignalR?
+  options:
+    - A. Real-time chat applications
+    - B. Batch data processing
+    - C. Static website hosting
+    - D. Image recognition
+  answer: A. Real-time chat applications
+  explanation: Azure SignalR is commonly used for real-time chat and collaboration apps.
+- id: 34
+  category: Azure Real-Time Services
+  question: Which Azure service allows you to broadcast messages to all connected clients in real time?
+  options:
+    - A. Azure Blob Storage
+    - B. Azure Web PubSub
+    - C. Azure SQL Database
+    - D. Azure Key Vault
+  answer: B. Azure Web PubSub
+  explanation: Azure Web PubSub is designed for broadcasting messages to all connected clients in real time.
+- id: 35
+  category: Azure Real-Time Services
+  question: How many concurrent connections can a single Azure SignalR support?
+  options:
+    - A. 100
+    - B. 1,000
+    - C. 1,000,000
+    - D. 20,000
+  answer: C. 1,000,000
+  explanation: The latest Premium P2 tier supports up to 1,000,000 concurrent connections.
+- id: 36
+  category: Azure Real-Time Services
+  question: Which feature is supported by both Azure SignalR and Azure Web PubSub?
+  options:
+    - A. Real-time group messaging
+    - B. SQL query execution
+    - C. File uploads
+    - D. Virtual machine creation
+  answer: A. Real-time group messaging
+  explanation: Both services support real-time group messaging.
+- id: 37
+  category: Azure Real-Time Services
+  question: Which Azure service is best suited for real-time dashboards and live data feeds?
+  options:
+    - A. Azure Web PubSub
+    - B. Azure Static Web Apps
+    - C. Azure Logic Apps
+    - D. Azure DevOps
+  answer: A. Azure Web PubSub
+  explanation: Azure Web PubSub is ideal for real-time dashboards and live data feeds.
+- id: 38
+  category: Azure Real-Time Services
+  question: Can Azure SignalR and Azure Web PubSub be used with serverless architectures?
+  options:
+    - A. Yes
+    - B. No
+  answer: A. Yes
+  explanation: Both services can be integrated with serverless architectures like Azure Functions.
+- id: 39
+  category: Azure Real-Time Services
+  question: What is a key benefit of using Azure Web PubSub over managing your own WebSocket server?
+  options:
+    - A. Automatic scaling and managed connections
+    - B. Lower storage costs
+    - C. Built-in image processing
+    - D. SQL database integration
+  answer: A. Automatic scaling and managed connections
+  explanation: Azure Web PubSub provides automatic scaling and managed connections, reducing operational overhead.
