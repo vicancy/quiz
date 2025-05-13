@@ -25,41 +25,50 @@ export default function QuizPage() {
 
 
   // On mount: check for restart code, or load quiz state from localStorage
-  useEffect(() => {
-    const url = new URL(window.location.href);
-    const restart = url.searchParams.get("code") === "restart";
-    if (restart) {
-      localStorage.removeItem(LOCAL_STORAGE_KEY);
-    }
-    const saved = localStorage.getItem(LOCAL_STORAGE_KEY);
-    if (saved && !restart) {
-      try {
-        const parsed = JSON.parse(saved);
-        if (parsed && parsed.answers && parsed.submitted) {
-          setAnswers(parsed.answers);
-          setSubmitted(true);
-          setScore(parsed.score || 0);
-          setLocked(true);
-        } else if (parsed && parsed.answers) {
-          setAnswers(parsed.answers);
+useEffect(() => {
+  const url = new URL(window.location.href);
+  const restart = url.searchParams.get("code") === "restart";
+  if (restart) {
+    localStorage.removeItem(LOCAL_STORAGE_KEY);
+  }
+  const saved = localStorage.getItem(LOCAL_STORAGE_KEY);
+  if (saved && !restart) {
+    try {
+      const parsed = JSON.parse(saved);
+      if (parsed && parsed.answers && parsed.submitted) {
+        setAnswers(parsed.answers);
+        setSubmitted(true);
+        setScore(parsed.score || 0);
+        setLocked(true);
+        if (parsed.questions) {
+          setQuestions(parsed.questions);
         }
-      } catch {}
-    }
-    fetch("/api/questions")
-      .then((res) => res.json())
-      .then((data) => {
-        setQuestions(data.questions);
-      });
-  }, []);
+        return;
+      } else if (parsed && parsed.answers) {
+        setAnswers(parsed.answers);
+        if (parsed.questions) {
+          setQuestions(parsed.questions);
+        }
+        // Still fetch questions if not present
+      }
+    } catch {}
+  }
+  // Only fetch if not already loaded from localStorage
+  fetch("/api/questions")
+    .then((res) => res.json())
+    .then((data) => {
+      setQuestions(data.questions);
+    });
+}, []);
 
   // Save quiz state to localStorage
-  useEffect(() => {
-    if (questions.length === 0) return;
-    localStorage.setItem(
-      LOCAL_STORAGE_KEY,
-      JSON.stringify({ answers, submitted, score })
-    );
-  }, [answers, submitted, score, questions.length]);
+useEffect(() => {
+  if (questions.length === 0) return;
+  localStorage.setItem(
+    LOCAL_STORAGE_KEY,
+    JSON.stringify({ answers, submitted, score, questions })
+  );
+}, [answers, submitted, score, questions]);
 
   const handleChange = (qid: number, value: string) => {
     if (locked) return;
@@ -86,7 +95,6 @@ export default function QuizPage() {
 
   return (
     <div style={{ maxWidth: 600, margin: '40px auto', padding: 16 }}>
-      <h1>Quiz</h1>
       <form onSubmit={handleSubmit}>
         {questions.map((q, idx) => (
           <div key={q.id} style={{ marginBottom: 32, padding: 16, border: '1px solid #eee', borderRadius: 8 }}>

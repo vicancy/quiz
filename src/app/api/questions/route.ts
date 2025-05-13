@@ -11,22 +11,23 @@ async function loadQuestions() {
 
 
 function getRandomQuestions(questions: any[]) {
-  // Group questions by category
-  const categories = ["Math", "Science", "History", "Geography", "Literature"];
+  // Get all unique categories from the questions
+  const categories = Array.from(new Set(questions.map(q => q.category)));
   const selected: any[] = [];
+  // Pick one random question from each category
   for (const cat of categories) {
     const catQuestions = questions.filter(q => q.category === cat);
-    // Pick one random question from each category
     if (catQuestions.length > 0) {
       const idx = Math.floor(Math.random() * catQuestions.length);
       selected.push(catQuestions[idx]);
     }
   }
-  // If less than 6, fill with randoms from all
-  while (selected.length < 6) {
-    const idx = Math.floor(Math.random() * questions.length);
-    if (!selected.includes(questions[idx])) {
-      selected.push(questions[idx]);
+  // Add one more random question from any category, not already selected
+  if (questions.length > selected.length) {
+    const remaining = questions.filter(q => !selected.includes(q));
+    if (remaining.length > 0) {
+      const idx = Math.floor(Math.random() * remaining.length);
+      selected.push(remaining[idx]);
     }
   }
   return selected;
