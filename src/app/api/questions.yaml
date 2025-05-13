@@ -1,0 +1,102 @@
+
+# Azure Managed Grafana Questions
+- id: 1
+  category: Azure Managed Grafana
+  question: What is Azure Managed Grafana?
+  options:
+    - A. A self-hosted Grafana instance on Azure VMs
+    - B. A fully managed Azure service built on Grafana software
+    - C. A proprietary Microsoft data visualization tool unrelated to Grafana
+    - D. A deprecated Azure service for log analytics
+  answer: B. A fully managed Azure service built on Grafana software
+  explanation: Azure Managed Grafana is a fully managed Azure service built on Grafana software.
+- id: 2
+  category: Azure Managed Grafana
+  question: Which identity service does Azure Managed Grafana use for user authentication?
+  options:
+    - A. AWS IAM
+    - B. Google Identity Platform
+    - C. Microsoft Entra ID (Azure Active Directory)
+    - D. Okta
+  answer: C. Microsoft Entra ID (Azure Active Directory)
+  explanation: Azure Managed Grafana uses Microsoft Entra ID (Azure Active Directory) for authentication.
+- id: 3
+  category: Azure Managed Grafana
+  question: Which built-in core data source is supported in both the Essential and Standard tiers of Azure Managed Grafana?
+  options:
+    - A. ElasticSearch
+    - B. Azure Monitor
+    - C. Tempo
+    - D. AWS CloudWatch
+  answer: B. Azure Monitor
+  explanation: Azure Monitor is supported in both tiers as a core data source.
+- id: 4
+  category: Azure Managed Grafana
+  question: Which service tier of Azure Managed Grafana includes an SLA and access to Grafana Enterprise features?
+  options:
+    - A. Essential
+    - B. Standard
+    - C. Developer
+    - D. Community
+  answer: B. Standard
+  explanation: The Standard tier includes an SLA and access to Grafana Enterprise features.
+- id: 5
+  category: Azure Managed Grafana
+  question: Azure Managed Grafana provides built-in support for which of the following Azure services?
+  options:
+    - A. Azure Monitor and Azure Data Explorer
+    - B. Azure DevOps and Azure Cognitive Services
+    - C. Azure Functions and Azure Logic Apps
+    - D. Azure Service Bus and Event Grid
+  answer: A. Azure Monitor and Azure Data Explorer
+  explanation: Azure Managed Grafana provides built-in support for Azure Monitor and Azure Data Explorer.
+- id: 6
+  category: Azure Managed Grafana
+  question: How can you securely connect to a private data source (e.g., self-hosted Prometheus) from Azure Managed Grafana?
+  options:
+    - A. Public endpoint with IP restrictions
+    - B. Managed private endpoint
+    - C. SSH tunnel only
+    - D. Service Bus relay
+  answer: B. Managed private endpoint
+  explanation: Managed private endpoint is the secure way to connect to private data sources.
+- id: 7
+  category: Azure Managed Grafana
+  question: What is required to authenticate the Azure Monitor data source in Azure Managed Grafana?
+  options:
+    - A. Personal access token
+    - B. Azure AD app registration and service principal with Reader role
+    - C. OAuth2 client credentials from GitHub
+    - D. API key from Azure Key Vault
+  answer: B. Azure AD app registration and service principal with Reader role
+  explanation: Azure AD app registration and service principal with Reader role are required for authentication.
+- id: 8
+  category: Azure Managed Grafana
+  question: Which additional data sources become available when you subscribe to Grafana Enterprise within the Standard tier?
+  options:
+    - A. Prometheus and Loki
+    - B. AppDynamics, Datadog, Splunk
+    - C. Azure Monitor and Azure Data Explorer
+    - D. TestData and JSON API
+  answer: B. AppDynamics, Datadog, Splunk
+  explanation: AppDynamics, Datadog, and Splunk become available with Grafana Enterprise.
+- id: 9
+  category: Azure Managed Grafana
+  question: What feature allows you to quickly create a Grafana dashboard by leveraging existing charts from within the Azure portal?
+  options:
+    - A. One-click Azure Portal Export
+    - B. Dashboard Studio
+    - C. Direct import of existing charts
+    - D. Azure Quick Charts
+  answer: C. Direct import of existing charts
+  explanation: Direct import of existing charts allows quick dashboard creation.
+- id: 10
+  category: Azure Managed Grafana
+  question: Which networking feature ensures that Azure Managed Grafana uses consistent outbound IP addresses?
+  options:
+    - A. Dynamic IP allocation
+    - B. Randomized egress
+    - C. Deterministic outbound IPs
+    - D. DNS-based routing
+  answer: C. Deterministic outbound IPs
+  explanation: Deterministic outbound IPs ensure consistent outbound IP addresses.
