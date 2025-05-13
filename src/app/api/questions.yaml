@@ -1,3 +1,100 @@
+# Azure Service Connector Questions
+- id: 11
+  category: Azure Service Connector
+  question: What is the Azure Service Connector used for?
+  options:
+    - A. Hosting web applications
+    - B. Automating deployments
+    - C. Connecting applications to Azure services
+    - D. Managing user access
+  answer: C. Connecting applications to Azure services
+  explanation: Azure Service Connector is used for connecting applications to Azure services.
+- id: 12
+  category: Azure Service Connector
+  question: Which Azure portal feature allows you to connect your app to a service like Azure SQL or Storage?
+  options:
+    - A. Azure Monitor
+    - B. Service Connector
+    - C. Virtual Network
+    - D. Key Vault
+  answer: B. Service Connector
+  explanation: Service Connector is the Azure portal feature for connecting apps to services like Azure SQL or Storage.
+- id: 13
+  category: Azure Service Connector
+  question: Can Azure Service Connector be used to connect to both Azure and external services?
+  options:
+    - A. Yes
+    - B. No
+  answer: B. No
+  explanation: Azure Service Connector is only for Azure services, not external services.
+- id: 14
+  category: Azure Service Connector
+  question: What type of applications can use the Azure Service Connector?
+  options:
+    - A. Azure Web Apps
+    - B. Azure Functions
+    - C. Azure Container Apps
+    - D. All of the above
+  answer: D. All of the above
+  explanation: All of the above application types can use Azure Service Connector.
+- id: 15
+  category: Azure Service Connector
+  question: Does the Service Connector automatically configure authentication settings for you?
+  options:
+    - A. Yes
+    - B. No
+  answer: A. Yes
+  explanation: Service Connector can automatically configure authentication settings.
+- id: 16
+  category: Azure Service Connector
+  question: Which services can you connect to using Azure Service Connector?
+  options:
+    - A. Azure SQL
+    - B. Azure Storage
+    - C. Azure App Configuration
+    - D. All of the above
+  answer: D. All of the above
+  explanation: Azure Service Connector supports connecting to all of the above services.
+- id: 17
+  category: Azure Service Connector
+  question: What is a key benefit of using Azure Service Connector for application development?
+  options:
+    - A. It improves frontend performance
+    - B. It eliminates the need for managing credentials manually
+    - C. It replaces your database
+    - D. It blocks all outbound traffic
+  answer: B. It eliminates the need for managing credentials manually
+  explanation: Azure Service Connector eliminates the need for managing credentials manually.
+- id: 18
+  category: Azure Service Connector
+  question: When setting up a connection with Azure Service Connector, which Azure feature is often configured automatically?
+  options:
+    - A. Virtual Machines
+    - B. DNS Zones
+    - C. Networking rules and managed identities
+    - D. Blob lifecycle policies
+  answer: C. Networking rules and managed identities
+  explanation: Networking rules and managed identities are often configured automatically.
+- id: 19
+  category: Azure Service Connector
+  question: How does Azure Service Connector simplify app-service-to-service integrations?
+  options:
+    - A. By generating code for front-end frameworks
+    - B. By auto-scaling app services
+    - C. By configuring networking and authentication in a few clicks
+    - D. By creating virtual machines
+  answer: C. By configuring networking and authentication in a few clicks
+  explanation: Azure Service Connector configures networking and authentication in a few clicks.
+- id: 20
+  category: Azure Service Connector
+  question: What happens if you delete a service that was connected using Azure Service Connector?
+  options:
+    - A. The application automatically switches to a backup service
+    - B. The connection remains active and continues to work
+    - C. The connection breaks and the app may fail to access the service
+    - D. Azure creates a duplicate of the deleted service
+  answer: C. The connection breaks and the app may fail to access the service
+  explanation: The connection breaks and the app may fail to access the service if the connected service is deleted.
 
 # Azure Managed Grafana Questions
 - id: 1
