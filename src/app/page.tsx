@@ -16,12 +16,24 @@ interface AnswerState {
 
 const LOCAL_STORAGE_KEY = "quiz_result";
 
+interface ResultItem {
+  id: number;
+  correct: boolean;
+  answer: string;
+  explanation: string;
+  userAnswer: string | null;
+  category: string;
+  question: string;
+  options: string[];
+}
+
 export default function QuizPage() {
   const [questions, setQuestions] = useState<Question[]>([]);
   const [answers, setAnswers] = useState<AnswerState>({});
   const [submitted, setSubmitted] = useState(false);
   const [score, setScore] = useState(0);
   const [locked, setLocked] = useState(false);
+  const [results, setResults] = useState<ResultItem[] | null>(null);
 
 
   // On mount: check for restart code, or load quiz state from localStorage
@@ -35,21 +47,14 @@ useEffect(() => {
   if (saved && !restart) {
     try {
       const parsed = JSON.parse(saved);
-      if (parsed && parsed.answers && parsed.submitted) {
-        setAnswers(parsed.answers);
-        setSubmitted(true);
-        setScore(parsed.score || 0);
-        setLocked(true);
-        if (parsed.questions) {
-          setQuestions(parsed.questions);
-        }
+      if (parsed && parsed.questions) {
+        setQuestions(parsed.questions);
+        if (parsed.answers) setAnswers(parsed.answers);
+        if (parsed.submitted) setSubmitted(true);
+        if (parsed.score) setScore(parsed.score);
+        if (parsed.locked) setLocked(true);
+        if (parsed.results) setResults(parsed.results);
         return;
-      } else if (parsed && parsed.answers) {
-        setAnswers(parsed.answers);
-        if (parsed.questions) {
-          setQuestions(parsed.questions);
-        }
-        // Still fetch questions if not present
       }
     } catch {}
   }
@@ -58,34 +63,59 @@ useEffect(() => {
     .then((res) => res.json())
     .then((data) => {
       setQuestions(data.questions);
+      // Save to localStorage for future loads
+      localStorage.setItem(
+        LOCAL_STORAGE_KEY,
+        JSON.stringify({ questions: data.questions })
+      );
     });
 }, []);
 
-  // Save quiz state to localStorage
+// Save quiz state to localStorage
 useEffect(() => {
   if (questions.length === 0) return;
   localStorage.setItem(
     LOCAL_STORAGE_KEY,
-    JSON.stringify({ answers, submitted, score, questions })
+    JSON.stringify({ answers, submitted, score, questions, results })
   );
-}, [answers, submitted, score, questions]);
+}, [answers, submitted, score, questions, results]);
 
   const handleChange = (qid: number, value: string) => {
     if (locked) return;
     setAnswers((prev) => ({ ...prev, [qid]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (locked) return;
-    let sc = 0;
-    questions.forEach((q) => {
-      if (answers[q.id] === q.answer) sc++;
+    // POST answers to backend for checking
+    const res = await fetch("/api/questions", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        answers,
+        questionIds: questions.map(q => q.id)
+      })
     });
-    setScore(sc);
+    const data = await res.json();
+    if (data && data.result) {
+      setResults(data.result);
+      setScore(data.result.filter((r: ResultItem) => r.correct).length);
+      // Save result to localStorage immediately
+      localStorage.setItem(
+        LOCAL_STORAGE_KEY,
+        JSON.stringify({
+          answers,
+          submitted: true,
+          score: data.result.filter((r: ResultItem) => r.correct).length,
+          questions,
+          results: data.result,
+          locked: true
+        })
+      );
+    }
     setSubmitted(true);
     setLocked(true);
-    // Save result to localStorage (handled by useEffect)
   };
 
   if (questions.length === 0)
@@ -96,11 +126,11 @@ useEffect(() => {
   return (
     <div style={{ maxWidth: 600, margin: '40px auto', padding: 16 }}>
       <form onSubmit={handleSubmit}>
-        {questions.map((q, idx) => (
+        {(results || questions).map((q: any, idx: number) => (
           <div key={q.id} style={{ marginBottom: 32, padding: 16, border: '1px solid #eee', borderRadius: 8 }}>
             <div style={{ fontWeight: 600, marginBottom: 8 }}>{idx + 1}. {q.question} <span style={{ fontSize: 12, color: '#888' }}>[{q.category}]</span></div>
             <div>
-              {q.options.map((opt) => (
+              {q.options.map((opt: string) => (
                 <label key={opt} style={{ display: 'block', marginBottom: 4 }}>
                   <input
                     type="radio"
@@ -115,10 +145,10 @@ useEffect(() => {
                 </label>
               ))}
             </div>
-            {(submitted || locked) && (
+            {(submitted || locked) && results && (
               <div style={{ marginTop: 8 }}>
-                <span style={{ color: answers[q.id] === q.answer ? 'green' : 'red', fontWeight: 600 }}>
-                  Your answer: {answers[q.id] || <em>None</em>}<br />
+                <span style={{ color: q.correct ? 'green' : 'red', fontWeight: 600 }}>
+                  Your answer: {q.userAnswer || <em>None</em>}<br />
                   Correct answer: {q.answer}
                 </span>
                 <div style={{ fontSize: 13, color: '#666', marginTop: 4, fontStyle: 'italic' }}>Explanation: {q.explanation}</div>
